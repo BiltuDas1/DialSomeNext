@@ -8,8 +8,8 @@ import retrofit2.http.POST
 interface DialsomeApiService {
 
     // 1. Authentication
-    @POST("auth/google") // Ensure this matches your Python router path
-    suspend fun authenticateWithGoogle(@Body request: GoogleAuthRequest): Response<AuthResponse>
+    @POST("api/v1/auth/google")
+    suspend fun loginWithGoogle(@Body request: GoogleAuthRequest): Response<AuthResponse>
 
     // 2. Users / Contacts
     @GET("users/contacts")
