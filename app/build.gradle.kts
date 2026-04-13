@@ -66,6 +66,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.play.services)
 
     // Networking
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
+    implementation(libs.retrofit.v290)
+    implementation(libs.converter.gson.v290)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
 }
