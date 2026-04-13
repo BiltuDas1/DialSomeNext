@@ -49,7 +49,11 @@ class SecureStorageManager(private val context: Context) {
      * Use this inside a Coroutine scope.
      */
     suspend fun saveData(keyName: String, plainText: String) {
-        val cryptoAead = aead ?: return Log.e(TAG, "Tink Aead not initialized")
+        val cryptoAead = aead
+        if (cryptoAead == null) {
+            Log.e(TAG, "Tink Aead not initialized")
+            return
+        }
 
         try {
             val encrypted = cryptoAead.encrypt(plainText.toByteArray(StandardCharsets.UTF_8), null)

@@ -3,6 +3,7 @@ package com.github.biltudas1.dialsomev2
 import android.content.Context
 import android.util.Log
 import org.webrtc.*
+import org.webrtc.audio.JavaAudioDeviceModule
 
 class WebRTCClient(
     private val context: Context,

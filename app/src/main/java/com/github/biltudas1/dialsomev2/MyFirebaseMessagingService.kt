@@ -37,7 +37,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 // NOTE: Make sure your ApiClient is configured to hold DialsomeApiService
-                ApiClient.apiService.updateFcmToken(FcmUpdateRequest(fcm_token = token))
+                ApiClient.getApiService(this@MyFirebaseMessagingService).updateFcmToken(FcmUpdateRequest(fcmToken = token))
             } catch (e: Exception) {
                 Log.e(TAG, "Failed to send FCM token to server", e)
             }

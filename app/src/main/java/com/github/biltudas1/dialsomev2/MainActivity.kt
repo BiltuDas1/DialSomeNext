@@ -56,10 +56,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     // This catches intents if the activity is already running in the background
-    override fun onNewIntent(intent: Intent?) {
+    override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
-        intent?.let { handleIntent(it) }
+        handleIntent(intent)
     }
 
     private fun handleIntent(intent: Intent) {
