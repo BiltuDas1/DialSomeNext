@@ -44,4 +44,28 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // WebRTC
+    implementation(libs.android)
+
+    // Firebase (For Push Notifications to ring the phone)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.messaging)
+
+    // Google Login
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid)
+
+    // Secure Storage
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.tink.android)
+
+    // Kotlin Coroutines (Background tasks & API Calls)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.play.services)
+
+    // Networking
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 }
