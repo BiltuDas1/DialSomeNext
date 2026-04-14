@@ -1,5 +1,5 @@
 [versions]
-agp = "9.1.0"
+agp = "9.1.1"
 android = "144.7559.01"
 converterGson = "3.0.0"
 converterGsonVersion = "2.9.0"
