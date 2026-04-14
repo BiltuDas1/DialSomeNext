@@ -1,170 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/surface_dim"> <com.google.android.material.appbar.AppBarLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/surface_dim"
-    app:elevation="0dp">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="start"> <TextView
+    <TextView
+        android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contacts"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:textColor="@color/on_surface"
-        android:letterSpacing="-0.02"/>
+        android:text="Status: Disconnected"
+        android:textSize="18sp"
+        android:layout_marginBottom="32dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ready to dial"
-            android:textColor="@color/on_surface_variant"
-            android:alpha="0.7"
-            android:textSize="14sp"/>
-    </LinearLayout>
-</com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
+    <EditText
+        android:id="@+id/etTargetUserId"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingBottom="100dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="16dp">
-
-            <EditText
-                android:id="@+id/etSearch"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:background="@drawable/bg_search_field"
-                android:hint="Search contacts"
-                android:paddingHorizontal="20dp"
-                android:textColor="@color/on_surface"
-                android:textColorHint="@color/on_surface_variant"
-                android:drawableStart="@android:drawable/ic_menu_search"
-                android:drawablePadding="12dp"
-                android:drawableTint="@color/on_surface_variant"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvContacts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:nestedScrollingEnabled="false" />
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddContact"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="110dp"
-        android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="@color/primary"
-        app:tint="@color/on_primary"
-        app:elevation="8dp"/>
+        android:hint="Enter Target User ID to Call"
+        android:layout_marginBottom="16dp"/>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btnCall"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="bottom"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/bg_floating_nav"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:text="Make Call (Create Offer)"/>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:clickable="true"
-            android:focusable="true">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_dialog_dialer"
-                app:tint="@color/on_surface_variant"
-                android:alpha="0.4"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DIALPAD"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                android:textColor="@color/on_surface_variant"
-                android:alpha="0.4"
-                android:layout_marginTop="4dp"/>
-        </LinearLayout>
+    <Button
+        android:id="@+id/btnAccept"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Accept Call (Send Answer)"
+        android:enabled="false"/>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:clickable="true"
-            android:focusable="true">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_recent_history"
-                app:tint="@color/on_surface_variant"
-                android:alpha="0.4"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RECENTS"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                android:textColor="@color/on_surface_variant"
-                android:alpha="0.4"
-                android:layout_marginTop="4dp"/>
-        </LinearLayout>
+    <Button
+        android:id="@+id/btnEndCall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="End Call"
+        android:textColor="#B00020"/>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:clickable="true"
-            android:focusable="true">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_myplaces"
-                app:tint="@color/primary"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CONTACTS"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                android:textColor="@color/primary"
-                android:layout_marginTop="4dp"/>
-        </LinearLayout>
-    </LinearLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>
