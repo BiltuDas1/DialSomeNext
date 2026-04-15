@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), SignalingCallback {
     private var webSocket: WebSocket? = null
 
     // TODO: REPLACE THIS WITH YOUR COMPUTER'S LOCAL IP ADDRESS (e.g., 192.168.1.5)
-    private val SIGNALING_SERVER_URL = "ws://192.168.31.253:8080"
+    private val SIGNALING_SERVER_URL = "wss://nextserver.biltu.workers.dev"
 
     private lateinit var tvStatus: TextView
     private lateinit var etTargetUserId: EditText
