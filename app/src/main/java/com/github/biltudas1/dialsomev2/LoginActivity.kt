@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,12 +20,15 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var googleAuthManager: GoogleAuthManager
     private lateinit var secureStorage: SecureStorageManager
 
+    private lateinit var ivLoadingGoogleLogo: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         btnGoogleSignIn = findViewById(R.id.btnGoogleSignIn)
         progressBar = findViewById(R.id.progressBar)
+        ivLoadingGoogleLogo = findViewById(R.id.ivLoadingGoogleLogo)
 
         googleAuthManager = GoogleAuthManager(this)
         secureStorage = SecureStorageManager(this)
@@ -96,12 +100,16 @@ class LoginActivity : AppCompatActivity() {
     private fun setLoading(isLoading: Boolean) {
         if (isLoading) {
             btnGoogleSignIn.text = ""
+            btnGoogleSignIn.icon = null
             btnGoogleSignIn.isEnabled = false
             progressBar.visibility = View.VISIBLE
+            ivLoadingGoogleLogo.visibility = View.VISIBLE
         } else {
             btnGoogleSignIn.text = "Sign in with Google"
+            btnGoogleSignIn.setIconResource(R.drawable.ic_google)
             btnGoogleSignIn.isEnabled = true
             progressBar.visibility = View.GONE
+            ivLoadingGoogleLogo.visibility = View.GONE
         }
     }
 
