@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiClient {
     // Replace with your actual backend URL
-    private const val BASE_URL = "https://dialsome.onrender.com/"
+    private const val BASE_URL = "https://nextserver.biltu.workers.dev/"
 
     @Volatile
     private var retrofit: Retrofit? = null
